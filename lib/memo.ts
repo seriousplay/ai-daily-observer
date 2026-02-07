@@ -27,7 +27,7 @@ export async function getMemos(): Promise<Memo[]> {
       
       return {
         slug: file.replace('.md', ''),
-        date: data.date || file.replace('.md', ''),
+        date: String(data.date || file.replace('.md', '')),
         title: data.title || 'AI Daily Memo',
         content,
         techInsights: data.techInsights || [],
@@ -35,7 +35,7 @@ export async function getMemos(): Promise<Memo[]> {
         edTechInnovation: data.edTechInnovation || [],
       }
     })
-    .sort((a, b) => b.date.localeCompare(a.date))
+    .sort((a, b) => String(b.date).localeCompare(String(a.date)))
   
   return memos
 }
@@ -56,7 +56,7 @@ export async function getMemoByDate(date: string): Promise<Memo | undefined> {
   
   return {
     slug: date,
-    date: data.date || date,
+    date: String(data.date || date),
     title: data.title || 'AI Daily Memo',
     content: String(processedContent),
     techInsights: data.techInsights || [],
