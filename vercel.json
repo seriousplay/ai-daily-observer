@@ -1,6 +1,5 @@
 {
   "name": "ai-daily-observer",
-  "version": "1.0.0",
   "build": {
     "env": {
       "NEXT_PUBLIC_SITE_URL": "https://ai-daily-observer.vercel.app"
